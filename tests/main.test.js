@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { medianScore, topScoringStudent } = require("../src/main");
 
-describe("medianScore", () => {
+describe("medianScore()", () => {
   it("should return the student with the median score for a list of students", () => {
     const students = [
       { name: "Luana Barbosa", score: 9.2 },
@@ -12,13 +12,19 @@ describe("medianScore", () => {
     ];
     const actual = medianScore(students);
     const expected = 8.4;
-    expect(actual).to.be.a("number");
+    //expect(actual).to.be.a("number");
+    expect(actual).to.equal(expected);
+  });
+  it("should return null if passed an empty array", () => {
+    const students = [];
+    const actual = medianScore(students);
+    const expected = null;
     expect(actual).to.equal(expected);
   });
 });
 
-describe("topScoringStudent", () => {
-  it("should return the student with the highest score for a list of students", () => {
+describe("topScoringStudent()", () => {
+  it("should return the student object with the highest score for a list of students", () => {
     const students = [
       { name: "Luana Barbosa", score: 9.2 },
       { name: "Evan Webb", score: 8.4 },
@@ -28,7 +34,13 @@ describe("topScoringStudent", () => {
     ];
     const actual = topScoringStudent(students);
     const expected = { name: "Riley Morgan", score: 9.8 };
-    expect(actual).to.be.an("object");
+    //expect(actual).to.be.an("object");
+    expect(actual).to.eql(expected);
+  });
+  it("should return null if passed an empty array", () => {
+    const students = [];
+    const actual = topScoringStudent(students);
+    const expected = null;
     expect(actual).to.equal(expected);
   });
 });
